@@ -47,7 +47,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Foods");
+                    b.ToTable("Foods", (string)null);
                 });
 
             modelBuilder.Entity("FinalProject.Models.Hobby", b =>
@@ -72,7 +72,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hobbies");
+                    b.ToTable("Hobbies", (string)null);
                 });
 
             modelBuilder.Entity("FinalProject.Models.Movie", b =>
@@ -99,7 +99,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies");
+                    b.ToTable("Movies", (string)null);
                 });
 
             modelBuilder.Entity("FinalProject.Models.TeamMember", b =>
@@ -131,7 +131,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TeamMembers");
+                    b.ToTable("TeamMembers", (string)null);
                 });
 #pragma warning restore 612, 618
         }

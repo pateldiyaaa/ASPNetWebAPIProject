@@ -5,7 +5,14 @@ using FinalProject.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<ITeamDbContextDAO, TeamDbContextDAO>();
+builder.Services.AddScoped<TeamDbContextDAO>();
+builder.Services.AddScoped<FoodDbContextDAO>();
+builder.Services.AddScoped<HobbyDbContextDAO>();
+builder.Services.AddScoped<MovieDbContextDAO>();
+builder.Services.AddScoped<ITeamDbContextDAO>(sp => sp.GetRequiredService<TeamDbContextDAO>());
+builder.Services.AddScoped<IFoodDbContextDAO>(sp => sp.GetRequiredService<FoodDbContextDAO>());
+builder.Services.AddScoped<IHobbyDbContextDAO>(sp => sp.GetRequiredService<HobbyDbContextDAO>());
+builder.Services.AddScoped<IMovieDbContextDAO>(sp => sp.GetRequiredService<MovieDbContextDAO>());
 
 // Add services to the container.
 
