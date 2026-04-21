@@ -27,10 +27,7 @@ namespace FinalProject.Data
         //Sami - build DAO for PUT
         public int? UpdateRecord(Hobby hobby)
         {
-            /* Sami - var hobbyToUpdate = this.GetRecordById(hobby.Id); - temporarily removed
-             Hobby.Id is currently type String not Int. 
-             Attempting to update table and re-migrate */
-            var hobbyToUpdate = this.GetRecordById(1);
+            var hobbyToUpdate = this.GetRecordById(hobby.Id);            
             if (hobbyToUpdate == null) return null;
             try
             {

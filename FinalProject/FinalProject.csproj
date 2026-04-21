@@ -17,4 +17,8 @@
     <PackageReference Include="NSwag.AspNetCore" Version="14.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

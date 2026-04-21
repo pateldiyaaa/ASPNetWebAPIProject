@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260414200950_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260420231554_IntialCreationAfterHobby.IdUpdateToInt")]
+    partial class IntialCreationAfterHobbyIdUpdateToInt
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,8 +55,11 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Hobby", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Category")
                         .IsRequired()

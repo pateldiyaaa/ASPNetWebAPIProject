@@ -47,13 +47,16 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Foods", (string)null);
+                    b.ToTable("Foods");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Hobby", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Category")
                         .IsRequired()
@@ -72,7 +75,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hobbies", (string)null);
+                    b.ToTable("Hobbies");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Movie", b =>
@@ -99,7 +102,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Movies", (string)null);
+                    b.ToTable("Movies");
                 });
 
             modelBuilder.Entity("FinalProject.Models.TeamMember", b =>
@@ -131,7 +134,7 @@ namespace FinalProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TeamMembers", (string)null);
+                    b.ToTable("TeamMembers");
                 });
 #pragma warning restore 612, 618
         }
