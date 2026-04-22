@@ -19,7 +19,7 @@ namespace FinalProject.Data
         }
 
         //Sami - build DAO for GET BY ID
-        public Food GetRecordById(int id)
+        public Food GetRecordById(int? id)
         {
             return _daoContext.Foods.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }

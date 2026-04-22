@@ -22,8 +22,21 @@ namespace FinalProject.Controllers
         }
 
         [HttpGet("id")]
-        public IActionResult GetRecordById(int id)
+        public IActionResult GetRecordById(int? id)
         {
+            if (id == null || id == 0)
+            {
+                int i = 1;
+                var firstFive = new List<Movie>();
+                while (i <= 5)
+                {
+                    var firstFiveMovies = _movieDbContext.GetRecordById(i);
+                    firstFive.Add(firstFiveMovies);
+                    i++;
+                }
+                return Ok(firstFive);
+            }
+
             var record = _movieDbContext.GetRecordById(id);
 
             if (record == null)

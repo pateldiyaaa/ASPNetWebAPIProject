@@ -19,7 +19,7 @@ namespace FinalProject.Data
         }
 
         //Sami - build DAO for GET BY ID
-        public Hobby GetRecordById(int id)
+        public Hobby GetRecordById(int? id)
         {
             return _daoContext.Hobbies.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }

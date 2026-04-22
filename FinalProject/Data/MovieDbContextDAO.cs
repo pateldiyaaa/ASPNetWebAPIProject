@@ -19,7 +19,7 @@ namespace FinalProject.Data
         }
 
         //Sami - build DAO for GET BY ID
-        public Movie GetRecordById(int id)
+        public Movie GetRecordById(int? id)
         {
             return _daoContext.Movies.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }

@@ -21,7 +21,7 @@ namespace FinalProject.Data
         }
 
         //Sami - build DAO for GET BY ID
-        public TeamMember GetMember(int id)
+        public TeamMember GetMember(int? id)
         {
             return _daoContext.TeamMembers.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }

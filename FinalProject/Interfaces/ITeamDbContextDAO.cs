@@ -6,7 +6,7 @@ namespace FinalProject.Interfaces
     public interface ITeamDbContextDAO
     {
         List<TeamMember> GetAllMembers();
-        TeamMember GetMember(int id);
+        TeamMember GetMember(int? id);
         int? UpdateMember(TeamMember teamMember);
         int? RemoveMember(int id);
         int? AddMember(TeamMember teamMember);

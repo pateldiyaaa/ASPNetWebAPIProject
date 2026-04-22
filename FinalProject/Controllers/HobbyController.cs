@@ -22,8 +22,21 @@ namespace FinalProject.Controllers
         }
 
         [HttpGet("id")]
-        public IActionResult GetRecordById(int id)
+        public IActionResult GetRecordById(int? id)
         {
+            if (id == null || id == 0)
+            {
+                int i = 1;
+                var firstFive = new List<Hobby>();
+                while (i <= 5)
+                {
+                    var firstFiveHobbies = _hobbyDbContext.GetRecordById(i);
+                    firstFive.Add(firstFiveHobbies);
+                    i++;
+                }
+                return Ok(firstFive);
+            }
+
             var record = _hobbyDbContext.GetRecordById(id);
 
             if (record == null)

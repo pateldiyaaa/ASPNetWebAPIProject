@@ -27,8 +27,20 @@ namespace FinalProject.Controllers
 
         //Sami - READ data in TeamMember table of input ID by calling GetMember method from interface
         [HttpGet("id")]
-        public IActionResult GetMemberById(int id)
+        public IActionResult GetMemberById(int? id)
         {
+            if (id == null || id == 0)
+            {
+                int i = 1;
+                var firstFive = new List<TeamMember>();
+                while (i <= 5)
+                {
+                    var firstFiveMembers = _teamDbContext.GetMember(i);
+                    firstFive.Add(firstFiveMembers);
+                    i++;
+                }
+                return Ok(firstFive);
+            }
             var teamMember = _teamDbContext.GetMember(id);
 
             if (teamMember == null)
